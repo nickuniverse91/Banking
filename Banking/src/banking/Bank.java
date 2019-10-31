@@ -5,10 +5,16 @@
  */
 package banking;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author cstuser
  */
-public class Bank {
+public class Bank implements IBank{
+    
+    private String bankNumber;
+    private String address;
+    private ArrayList<Client>clientList = new ArrayList<Client>();
     
 }

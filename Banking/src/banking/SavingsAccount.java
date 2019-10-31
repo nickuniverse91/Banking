@@ -9,6 +9,6 @@ package banking;
  *
  * @author cstuser
  */
-public class SavingsAccount {
+public class SavingsAccount extends Account{
     
 }
