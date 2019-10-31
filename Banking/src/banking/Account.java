@@ -19,6 +19,24 @@ public class Account implements IAccount{
     protected double balance;
     protected ArrayList<Transaction>transactions  = new ArrayList<Transaction>();
     protected Client owner;
+
+    public Account() {
+        this.balance = 0;
+    }
+
+    public Account(int accountNumber, double balance, Client owner) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+        this.owner = owner;
+    }
     
     
+    double deposit(double d){
+        
+        
+    }
+    void displayAllTransactions();
+    ArrayList<Transaction> getTransactions();
+    String toString();
+    double withdrawal(double w);
 }
