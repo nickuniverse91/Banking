@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Client implements IClient{
     
-    private static int counter;
+    private static int counter = 0;
     
     private int id;
     private String firstName;
@@ -23,6 +23,7 @@ public class Client implements IClient{
     public Client(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+        counter++;
     }
 
     public int getId() {
@@ -49,6 +50,22 @@ public class Client implements IClient{
         this.lastName = lastName;
     }
     
+    public void addAccount(Account newAccount){
+        accountList.add(newAccount);
+    }
     
+    public void displayAccounts(){
+        for(int i = 0; i < accountList.size(); i++){
+            System.out.println(accountList.get(i));
+        }
+    }
+    
+    public Account getAccount(int accountNumber){
+        return accountList.get(accountNumber);
+    }
+    
+    public String toString(){
+        return "(" + id + ") " + lastName + ", " + firstName;
+    }
     
 }

@@ -16,5 +16,30 @@ public class Bank implements IBank{
     private String bankNumber;
     private String address;
     private ArrayList<Client>clientList = new ArrayList<Client>();
+	
+    public Bank(String bankNumber, String address){
+        this.bankNumber = bankNumber;
+        this.address = address;
+    }
+	
+    public String getBankNumber() {
+        return bankNumber;
+    }
+
+    public void setBankNumber(String bankNumber) {
+        this.bankNumber = bankNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    
+    public void addClient(Client newClient){
+        clientList.add(newClient);
+    }
     
 }
