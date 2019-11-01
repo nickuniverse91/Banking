@@ -19,9 +19,15 @@ public class Account implements IAccount{
     protected double balance;
     protected ArrayList<Transaction>transactions  = new ArrayList<Transaction>();
     protected Client owner;
+    protected CheckingAccount ca = new CheckingAccount();
+    protected SavingsAccount sa = new SavingsAccount();
 
     public Account() {
         this.balance = 0;
+    }
+
+    public Account(Client owner) {
+        this.owner = owner;
     }
 
     public Account(int accountNumber, double balance, Client owner) {
@@ -29,14 +35,59 @@ public class Account implements IAccount{
         this.balance = balance;
         this.owner = owner;
     }
-    
-    
-    double deposit(double d){
-        
-        
+
+    public int getAccountNumber() {
+        return this.accountNumber;
     }
-    void displayAllTransactions();
-    ArrayList<Transaction> getTransactions();
-    String toString();
-    double withdrawal(double w);
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public double getBalance() {
+        return this.balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public Client getOwner() {
+        return this.owner;
+    }
+
+    public void setOwner(Client owner) {
+        this.owner = owner;
+    }
+    
+    
+    public double deposit(double d){
+        this.balance += d;
+        Transaction t = new Transaction("deposit", d);
+        transactions.add(t);
+        return this.balance;
+    }
+    
+    public void displayAllTransactions(){
+        int clientId = UserInputManager.retrieveAccountNumber();
+        int accNumb = UserInputManager.
+            for(int i = 0; i <= transactions.size(); i++){
+                System.out.println(transactions.get(i));
+            }
+    }
+    
+    public ArrayList<Transaction> getTransactions(){
+        return this.transactions;
+    }
+    
+    String toString(){
+      for(int i = 0; i < )   
+    }
+    
+    public double withdrawal(double w){
+        this.balance += w;
+        Transaction t = new Transaction("withdrawal", w);
+        transactions.add(t);
+        return this.balance;
+    }
 }
