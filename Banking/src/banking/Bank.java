@@ -42,4 +42,23 @@ public class Bank implements IBank{
         clientList.add(newClient);
     }
     
+    public void displayClientAccounts(int clientId){
+        clientList.get(clientId - 1).displayAccounts();
+    }
+    
+    public void displayClientList(){
+        for(int i = 0; i < clientList.size(); i++){
+            System.out.println(clientList.get(i));
+        }
+    }
+    
+    public Client getClient(int id){
+        return clientList.get(id - 1);
+    }
+    
+    public Account getClientAccount(int clientId, int accountNumber){
+        Client cl = clientList.get(clientId - 1);
+        return cl.getAccount(accountNumber - 1);
+    }
+    
 }

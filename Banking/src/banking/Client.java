@@ -61,7 +61,7 @@ public class Client implements IClient{
     }
     
     public Account getAccount(int accountNumber){
-        return accountList.get(accountNumber);
+        return accountList.get(accountNumber - 1);
     }
     
     public String toString(){
