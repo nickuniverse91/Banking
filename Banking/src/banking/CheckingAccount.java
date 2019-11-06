@@ -10,5 +10,9 @@ package banking;
  * @author cstuser
  */
 public class CheckingAccount extends Account{
+
+    public CheckingAccount(Client owner) {
+        super(owner, "Checking");
+    }
     
 }
