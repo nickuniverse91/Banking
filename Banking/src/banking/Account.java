@@ -21,12 +21,9 @@ public class Account implements IAccount{
     protected Client owner;
     protected String type;
 
-    public Account() {
-        this.balance = 0;
-    }
-
     public Account(Client owner, String type) {
         this.owner = owner;
+        this.balance = 0;
     }
 
     public Account(int accountNumber, double balance, Client owner) {
