@@ -16,17 +16,17 @@ public class UserInputManager implements IUserInputManager{
         return Input;
     }
 
-    public int retrieveAccountNumber(){
+    public static int retrieveAccountNumber(int AccNum){
         System.out.println("Please enter account number: ");
-        int AccNum = Integer.parseInt(Scanning());
+        AccNum = Integer.parseInt(Scanning());
         return AccNum;
     }
     
-    public Account retrieveAccountType(){
+    public static Account retrieveAccountType(String AccountType){
         System.out.println("Please input your desired account type");
         System.out.println("Type Checking for a CheckingAccount or Type Saving for a SavingsAccount: ");
         
-        String AccountType = Scanning();
+        AccountType = Scanning();
             if (AccountType == "Checking"){
             }
                 else if (AccountType == "Saving" ) {
@@ -35,40 +35,40 @@ public class UserInputManager implements IUserInputManager{
     return null; //to fix
         
     }
-    public int retrieveClientId(){
+    public static int retrieveClientId(int Id){
         System.out.println("Please input your Id: ");
-        int Id = Integer.parseInt(Scanning());
+        Id = Integer.parseInt(Scanning());
         return Id;
     }
     
-    public Client retrieveClientInfo(){ 
+    public static Client retrieveClientInfo(String FirstName, String LastName){ 
         System.out.println("Please enter your First Name: ");
-        String FirstName = Scanning();
+        FirstName = Scanning();
         System.out.println("Please enter your Last Name: ");
-        String LastName = Scanning();
+        LastName = Scanning();
         System.out.println(FirstName +" " + LastName);
         
         return null; //to fix
     }
     
-    public double retrieveTransactionAmount(){
+    public static double retrieveTransactionAmount(double Deposit){
         String Transaction = Scanning();
         if(Transaction == "Deposit"){
             System.out.println("Please input your desired amount to deposit: ");
-            double Deposit = Double.parseDouble(Scanning());
+            Deposit = Double.parseDouble(Scanning());
             return Deposit + /* value already in the bank*/;  
         }
         else if(Transaction == "Withdraw"){
             System.out.println("Please input your desired amount to withdraw: ");
-            double Deposit = Double.parseDouble(Scanning());
+            Deposit = Double.parseDouble(Scanning());
             return Deposit - /* value already in the bank*/;  
         }
         return 0;//to fix
     }
     
-    public int retrieveUserOption(){
+    public static int retrieveUserOption(int entry){
         System.out.println("Please select one of the following numbers: ");
-        int entry = Integer.parseInt(Scanning());
+        entry = Integer.parseInt(Scanning());
         return entry;
     }
 
