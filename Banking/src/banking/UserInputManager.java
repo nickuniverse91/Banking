@@ -10,65 +10,70 @@ import java.util.Scanner;
 
 public class UserInputManager implements IUserInputManager{
     
-    private static String Scanning(){
+    private String Scanning(){
         Scanner scan = new Scanner(System.in);
         String Input = scan.nextLine();
         return Input;
     }
 
-    public static int retrieveAccountNumber(int AccNum){
+
+    public int retrieveAccountNumber(){
         System.out.println("Please enter account number: ");
-        AccNum = Integer.parseInt(Scanning());
+        int AccNum = Integer.parseInt(Scanning());
         return AccNum;
     }
     
-    public static Account retrieveAccountType(String AccountType){
+    public Account retrieveAccountType(){
         System.out.println("Please input your desired account type");
-        System.out.println("Type Checking for a CheckingAccount or Type Saving for a SavingsAccount: ");
+        System.out.println("Type Checkings for a CheckingAccount or Type Savings for a SavingsAccount: ");
+        Account a = null;
         
-        AccountType = Scanning();
-            if (AccountType == "Checking"){
+        String AccountType = Scanning();
+            if (AccountType.equalsIgnoreCase("Checkings")){
+                a = new CheckingAccount();
             }
-                else if (AccountType == "Saving" ) {
-                }
+            else if (AccountType.equalsIgnoreCase("Savings")){
+                a = new SavingsAccount();
+            }
             System.out.println(AccountType);
-    return null; //to fix
+            return a; //to fix
         
     }
-    public static int retrieveClientId(int Id){
+    public int retrieveClientId(){
         System.out.println("Please input your Id: ");
-        Id = Integer.parseInt(Scanning());
+        int Id = Integer.parseInt(Scanning());
         return Id;
     }
     
-    public static Client retrieveClientInfo(String FirstName, String LastName){ 
+    public Client retrieveClientInfo(){ 
         System.out.println("Please enter your First Name: ");
-        FirstName = Scanning();
+        String FirstName = Scanning();
         System.out.println("Please enter your Last Name: ");
-        LastName = Scanning();
+        String LastName = Scanning();
         System.out.println(FirstName +" " + LastName);
         
-        return null; //to fix
+        return new Client(FirstName, LastName); //to fix
     }
     
-    public static double retrieveTransactionAmount(double Deposit){
+    public double retrieveTransactionAmount(){
+        double deposit;
         String Transaction = Scanning();
         if(Transaction == "Deposit"){
             System.out.println("Please input your desired amount to deposit: ");
-            Deposit = Double.parseDouble(Scanning());
-            return Deposit + /* value already in the bank*/;  
+            deposit = Double.parseDouble(Scanning());
+            return deposit ;//+ /* value already in the bank*/;  
         }
         else if(Transaction == "Withdraw"){
             System.out.println("Please input your desired amount to withdraw: ");
-            Deposit = Double.parseDouble(Scanning());
-            return Deposit - /* value already in the bank*/;  
+            deposit = Double.parseDouble(Scanning());
+            return deposit ;//- /* value already in the bank*/;  
         }
         return 0;//to fix
     }
     
-    public static int retrieveUserOption(int entry){
+    public int retrieveUserOption(){
         System.out.println("Please select one of the following numbers: ");
-        entry = Integer.parseInt(Scanning());
+        int entry = Integer.parseInt(Scanning());
         return entry;
     }
 
