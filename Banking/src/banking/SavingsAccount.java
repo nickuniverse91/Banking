@@ -11,8 +11,8 @@ package banking;
  */
 public class SavingsAccount extends Account{
 
-    public SavingsAccount(Client owner) {
-        super(owner, "Savings");
+    public SavingsAccount() {
+        super("Savings");
     }
     
 }

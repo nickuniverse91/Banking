@@ -24,6 +24,7 @@ public class Client implements IClient{
         this.firstName = firstName;
         this.lastName = lastName;
         counter++;
+        this.id = counter;
     }
 
     public int getId() {

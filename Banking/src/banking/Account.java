@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Account implements IAccount{
     
-    private static int counter;
+    private static int counter = 0;
     
     protected int accountNumber;
     protected double balance;
@@ -21,9 +21,12 @@ public class Account implements IAccount{
     protected Client owner;
     protected String type;
 
-    public Account(Client owner, String type) {
-        this.owner = owner;
+    public Account(/*Client owner,*/ String type) {
+        //this.owner = owner;
         this.balance = 0;
+        counter++;
+        this.accountNumber = counter;
+        this.type = type;
     }
 
     public Account(int accountNumber, double balance, Client owner) {
