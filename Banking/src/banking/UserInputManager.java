@@ -56,19 +56,20 @@ public class UserInputManager implements IUserInputManager{
     }
     
     public double retrieveTransactionAmount(){
-        double deposit;
+        //double deposit;
         String Transaction = Scanning();
-        if(Transaction == "Deposit"){
+        /*if(Transaction == "Deposit"){
             System.out.println("Please input your desired amount to deposit: ");
             deposit = Double.parseDouble(Scanning());
-            return deposit ;//+ /* value already in the bank*/;  
+            return deposit;  
         }
         else if(Transaction == "Withdraw"){
             System.out.println("Please input your desired amount to withdraw: ");
             deposit = Double.parseDouble(Scanning());
-            return deposit ;//- /* value already in the bank*/;  
-        }
-        return 0;//to fix
+            return deposit;  
+        }*/
+        return Double.parseDouble(Transaction);
+               
     }
     
     public int retrieveUserOption(){
