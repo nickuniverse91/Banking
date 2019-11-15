@@ -7,10 +7,11 @@ package banking;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author cstuser
- */
+/*
+
+Alessio Cipriano-Kardous
+
+*/
 public class Account implements IAccount{
     
     private static int counter = 0;
@@ -27,12 +28,6 @@ public class Account implements IAccount{
         counter++;
         this.accountNumber = counter;
         this.type = type;
-    }
-
-    public Account(int accountNumber, double balance, Client owner) {
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-        this.owner = owner;
     }
 
     public int getAccountNumber() {
@@ -62,15 +57,17 @@ public class Account implements IAccount{
     
     public double deposit(double d){
         this.balance += d;
-        Transaction t = new Transaction("Deposit of", d);
+        Transaction t = new Transaction("Deposit", d);
         transactions.add(t);
+        System.out.println(this);
         return this.balance;
     }
     
     public void displayAllTransactions(){
-            for(int i = 0; i <= transactions.size(); i++){
-                System.out.println(transactions.get(i));
-            }
+        for(int i = 0; i < transactions.size(); i++){
+            System.out.println(transactions.get(i));
+        }
+        System.out.println(this);
     }
     
     public ArrayList<Transaction> getTransactions(){
@@ -82,9 +79,10 @@ public class Account implements IAccount{
     }
     
     public double withdrawal(double w){
-        this.balance += w;
-        Transaction t = new Transaction("Withdrawal of", w);
+        this.balance -= w;
+        Transaction t = new Transaction("Withdrawal", w);
         transactions.add(t);
+        System.out.println(this);
         return this.balance;
     }
 }

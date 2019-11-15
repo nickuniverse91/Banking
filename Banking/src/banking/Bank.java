@@ -7,10 +7,11 @@ package banking;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author cstuser
- */
+/*
+
+Nicholas Piperni
+
+*/
 public class Bank implements IBank{
     
     private String bankNumber;
@@ -43,7 +44,14 @@ public class Bank implements IBank{
     }
     
     public void displayClientAccounts(int clientId){
-        clientList.get(clientId - 1).displayAccounts();
+        //@RR
+        for (int i = 0; i < clientList.size(); i++) {
+            if(clientId == clientList.get(i).getId()){
+                System.out.println(clientList.get(i));
+                clientList.get(i).displayAccounts();
+            }
+                
+        }
     }
     
     public void displayClientList(){
@@ -52,13 +60,23 @@ public class Bank implements IBank{
         }
     }
     
-    public Client getClient(int id){
-        return clientList.get(id - 1);
-    }
+    //@RR
+    public Client getClient(int clientId){
+        for (int i = 0; i < clientList.size(); i++) {
+            if(clientId == clientList.get(i).getId()){
+                return clientList.get(i);
+            }
+        }
+        return null;
+  }
     
     public Account getClientAccount(int clientId, int accountNumber){
-        Client cl = clientList.get(clientId - 1);
-        return cl.getAccount(accountNumber - 1);
+        for (int i = 0; i < clientList.size(); i++) {
+            if(clientId == clientList.get(i).getId()){
+                return clientList.get(i).getAccount(accountNumber);
+            }
+        }
+        return null;
     }
     
 }

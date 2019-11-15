@@ -7,74 +7,68 @@ package banking;
 
 import java.util.Scanner;
 
+/*
 
+Pratham Patel 
+
+*/
 public class UserInputManager implements IUserInputManager{
-    
-    private String Scanning(){
-        Scanner scan = new Scanner(System.in);
-        String Input = scan.nextLine();
-        return Input;
-    }
-
+    //@RR
+    private Scanner scan = new Scanner(System.in);
 
     public int retrieveAccountNumber(){
-        System.out.println("Please enter account number: ");
-        int AccNum = Integer.parseInt(Scanning());
-        return AccNum;
+        //@RR
+        System.out.print("Please enter account number: ");
+        return this.scan.nextInt();
     }
     
     public Account retrieveAccountType(){
         System.out.println("Please input your desired account type");
-        System.out.println("Type Checkings for a CheckingAccount or Type Savings for a SavingsAccount: ");
-        Account a = null;
-        
-        String AccountType = Scanning();
-            if (AccountType.equalsIgnoreCase("Checkings")){
+        String type;
+        Account a;
+        do{
+            System.out.println("Type Checking for a CheckingAccount or Type Savings for a SavingsAccount: ");
+            type = this.scan.nextLine();
+            if(type.equalsIgnoreCase("checking")) {
                 a = new CheckingAccount();
-            }
-            else if (AccountType.equalsIgnoreCase("Savings")){
+            }else if(type.equalsIgnoreCase("savings")) {
                 a = new SavingsAccount();
+            }else {
+                a = null;
             }
-            System.out.println(AccountType);
-            return a; //to fix
-        
+            
+        }while(!type.equalsIgnoreCase("checking") && !type.equalsIgnoreCase("savings"));
+        return a;       
     }
+    
     public int retrieveClientId(){
         System.out.println("Please input your Id: ");
-        int Id = Integer.parseInt(Scanning());
+        int Id = this.scan.nextInt();
         return Id;
     }
     
     public Client retrieveClientInfo(){ 
-        System.out.println("Please enter your First Name: ");
-        String FirstName = Scanning();
-        System.out.println("Please enter your Last Name: ");
-        String LastName = Scanning();
-        System.out.println(FirstName +" " + LastName);
+        System.out.print("Please enter your First Name: ");
+        //@RR
+        String firstName = this.scan.nextLine();
+        System.out.print("Please enter your Last Name: ");
+        String lastName = this.scan.nextLine();
         
-        return new Client(FirstName, LastName); //to fix
+        Client c = new Client(firstName, lastName);
+        
+        return c;
     }
     
     public double retrieveTransactionAmount(){
-        //double deposit;
-        String Transaction = Scanning();
-        /*if(Transaction == "Deposit"){
-            System.out.println("Please input your desired amount to deposit: ");
-            deposit = Double.parseDouble(Scanning());
-            return deposit;  
-        }
-        else if(Transaction == "Withdraw"){
-            System.out.println("Please input your desired amount to withdraw: ");
-            deposit = Double.parseDouble(Scanning());
-            return deposit;  
-        }*/
-        return Double.parseDouble(Transaction);
+        System.out.println("Please input your desired amount: ");
+        double amount = this.scan.nextDouble();
+        return amount;
                
     }
     
     public int retrieveUserOption(){
         System.out.println("Please select one of the following numbers: ");
-        int entry = Integer.parseInt(Scanning());
+        int entry = this.scan.nextInt();
         return entry;
     }
 

@@ -5,10 +5,11 @@
  */
 package banking;
 
-/**
- *
- * @author cstuser
- */
+/*
+
+Pratham Patel 
+
+*/
 public class Transaction implements ITransaction{
     
     private String type;
@@ -37,9 +38,7 @@ public class Transaction implements ITransaction{
     public String toString(){
         return this.type + " of " + this.amount + "$";
     }
-
+    
+    
     
 }
-
-
-

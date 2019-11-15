@@ -7,10 +7,11 @@ package banking;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author cstuser
- */
+/*
+
+Nicholas Piperni
+
+*/
 public class Client implements IClient{
     
     private static int counter = 0;
@@ -18,7 +19,7 @@ public class Client implements IClient{
     private int id;
     private String firstName;
     private String lastName;
-    ArrayList<Account>accountList = new ArrayList<Account>();
+    private ArrayList<Account>accountList = new ArrayList<Account>();
 
     public Client(String firstName, String lastName) {
         this.firstName = firstName;
@@ -52,7 +53,10 @@ public class Client implements IClient{
     }
     
     public void addAccount(Account newAccount){
-        accountList.add(newAccount);
+        if(newAccount != null){
+            accountList.add(newAccount);
+        }
+        System.out.println("BOBO Account");
     }
     
     public void displayAccounts(){
@@ -62,7 +66,14 @@ public class Client implements IClient{
     }
     
     public Account getAccount(int accountNumber){
-        return accountList.get(accountNumber - 1);
+        Account acc;
+        for(int i = 0; i < accountList.size(); i++){
+            
+            if(accountList.get(i).getAccountNumber() == accountNumber){
+                return accountList.get(i);
+            }
+        }
+        return null;
     }
     
     public String toString(){

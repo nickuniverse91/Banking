@@ -5,10 +5,11 @@
  */
 package banking;
 
-/**
- *
- * @author cstuser
- */
+/*
+
+Alessio Cipriano-Kardous
+
+*/
 public class CheckingAccount extends Account{
 
     public CheckingAccount() {
