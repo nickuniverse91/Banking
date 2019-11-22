@@ -1,88 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package banking;
-
-import java.util.ArrayList;
-
-/*
-
-Alessio Cipriano-Kardous
-
-*/
-public class Account implements IAccount{
-    
-    private static int counter = 0;
-    
-    protected int accountNumber;
-    protected double balance;
-    protected ArrayList<Transaction>transactions  = new ArrayList<Transaction>();
-    protected Client owner;
-    protected String type;
-
-    public Account(/*Client owner,*/ String type) {
-        //this.owner = owner;
-        this.balance = 0;
-        counter++;
-        this.accountNumber = counter;
-        this.type = type;
-    }
-
-    public int getAccountNumber() {
-        return this.accountNumber;
-    }
-
-    public void setAccountNumber(int accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public double getBalance() {
-        return this.balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    public Client getOwner() {
-        return this.owner;
-    }
-
-    public void setOwner(Client owner) {
-        this.owner = owner;
-    }
-    
-    
-    public double deposit(double d){
-        this.balance += d;
-        Transaction t = new Transaction("Deposit", d);
-        transactions.add(t);
-        System.out.println(this);
-        return this.balance;
-    }
-    
-    public void displayAllTransactions(){
-        for(int i = 0; i < transactions.size(); i++){
-            System.out.println(transactions.get(i));
-        }
-        System.out.println(this);
-    }
-    
-    public ArrayList<Transaction> getTransactions(){
-        return this.transactions;
-    }
-    
-    public String toString(){
-        return this.type + "(" + this.accountNumber + ")" + ": " + this.balance + "$";
-    }
-    
-    public double withdrawal(double w){
-        this.balance -= w;
-        Transaction t = new Transaction("Withdrawal", w);
-        transactions.add(t);
-        System.out.println(this);
-        return this.balance;
-    }
-}
+/ÿÿ ÿ ÿoÿcÿaÿçÿ ÿhÿsÿlÿcÿnÿeÿhÿaÿeÿ,ÿcÿoÿsÿ!ÿiÿeÿsÿ ÿeÿdÿrÿ ÿîÿPÿïÿeÿtÿPÿoÿeÿtÿeÿ.ÿ
+ÿ*ÿTÿ ÿhÿnÿeÿtÿiÿ ÿeÿpÿaÿeÿfÿlÿ-ÿcÿoÿsÿ ÿoÿlÿ ÿ!ÿeÿpÿaÿeÿÿ ÿ ÿnÿ ÿpÿnÿtÿeÿtÿmÿlÿtÿ ÿîÿtÿeÿeÿiÿoÿ.ÿ
+ÿ*ÿÿpÿcÿaÿeÿbÿoÿéÿgÿÿÿiÿpÿrÿ!ÿaÿaÿuÿiÿ.ÿrÿaÿLÿsÿ;ÿ
+ÿ
+ÿ*ÿ
+ÿ
+ÿmÿsÿiÿ ÿiÿrÿaÿoÿKÿrÿoÿsÿ
+ÿ
+ÿ/ÿ
+ÿuÿlÿcÿcÿaÿsÿAÿãÿuÿtÿiÿpÿeÿeÿtÿ ÿAÿcÿuÿtÿÿ ÿ!ÿÿ ÿ ÿpÿiÿaÿeÿsÿaÿiÿ ÿoÿ ÿoÿnÿeÿ ÿ ÿ;ÿ
+ÿ ÿ ÿ
+ÿ ÿ ÿrÿtÿcÿåÿ ÿnÿ ÿcÿoÿnÿNÿmÿeÿ;ÿ
+ÿ ÿ ÿrÿtÿcÿeÿ ÿoÿâÿeÿbÿlÿîÿeÿÿ ÿ ÿpÿïÿeÿôÿdÿAÿrÿyÿiÿtÿTÿaÿsÿcÿiÿnÿtÿaÿsÿcÿiÿnÿ ÿ=ÿnÿwÿAÿrÿyÿiÿtÿTÿaÿsÿcÿiÿnÿ(ÿ;ÿ
+ÿ ÿ ÿrÿtÿcÿeÿ ÿlÿeÿtÿoÿnÿrÿÿ ÿ ÿpÿoÿeÿtÿdÿSÿrÿnÿ ÿyÿeÿÿÿ ÿ ÿpÿbÿiÿ ÿãÿoÿnÿ(ÿtÿiÿgÿuÿpÿ)ÿ{ÿÿ ÿ ÿ ÿ ÿhÿsÿbÿlÿnÿeÿ=ÿ0ÿÿ ÿ ÿ ÿ ÿcÿõÿtÿrÿ+ÿÿ ÿ ÿ ÿ ÿtÿiÿ.ÿcÿoÿîÿNÿmÿeÿ ÿ ÿoÿnÿeÿ;ÿ
+ÿ!ÿ ÿ ÿ ÿhÿsÿtÿpÿ ÿ ÿyÿeÿÿ ÿ ÿ}ÿ
+ÿ
+ÿ ÿ ÿuÿlÿcÿiÿtÿgÿuÿcÿoÿîÿNÿmÿeÿ(ÿ ÿÿ ÿ ÿ ÿ ÿrÿtÿrÿ ÿhÿsÿaÿcÿuÿtÿuÿbÿrÿÿ ÿ ÿ}ÿ
+ÿ
+ÿ ÿ ÿuÿlÿcÿvÿiÿ ÿeÿAÿcÿuÿtÿuÿbÿrÿiÿtÿaÿcÿuÿtÿuÿbÿrÿ ÿÿ ÿ ÿ ÿ ÿtÿiÿ.ÿcÿoÿnÿOÿmÿeÿ ÿ ÿcÿoÿnÿOÿmÿeÿ;ÿ
+ÿ ÿ!ÿÿÿ ÿ ÿpÿbÿiÿ ÿoÿbÿeÿgÿtÿaÿaÿcÿ(ÿ ÿÿ ÿ ÿ!ÿ ÿrÿtÿrÿ ÿhÿsÿcÿìÿnÿeÿÿ ÿ ÿ}ÿ
+ÿ
+ÿ ÿ ÿuÿlÿcÿvÿiÿ ÿeÿBÿlÿnÿeÿdÿuÿlÿ ÿaÿaÿcÿ)ÿ{ÿ
+ÿ ÿ ÿ ÿ ÿèÿsÿbÿlÿnÿeÿ=ÿbÿlÿnÿeÿÿ ÿ ÿ}ÿ
+ÿ
+ÿ ÿ ÿuÿlÿcÿCÿiÿnÿ!ÿeÿOÿnÿrÿ)ÿ{ÿ
+ÿ ÿ ÿ ÿ ÿeÿuÿnÿtÿiÿ.ÿwÿeÿ;ÿ
+ÿ ÿ ÿÿÿ ÿ ÿpÿbÿiÿ ÿoÿdÿsÿtÿwÿeÿ(ÿlÿeÿtÿoÿnÿrÿ ÿÿ ÿ ÿ ÿ ÿtÿiÿ.ÿwÿeÿ ÿ ÿwÿeÿ;ÿ
+ÿ ÿ ÿÿ ÿ ÿÿ ÿ ÿÿ ÿ ÿpÿbÿiÿ ÿoÿcÿeÿdÿpÿsÿtÿdÿuÿlÿ ÿ)ÿÿ ÿ ÿ ÿ ÿtÿiÿ.ÿaÿaÿcÿ ÿ½ÿdÿÿ ÿ ÿ!ÿ ÿTÿaÿsÿcÿiÿnÿtÿ=ÿnÿwÿTÿaÿsÿcÿiÿnÿ"ÿeÿoÿiÿ"ÿ ÿ)ÿÿ ÿ ÿ ÿ ÿtÿaÿsÿcÿiÿnÿ.ÿdÿ(ÿ)ÿÿ ÿ ÿ ÿ ÿSÿsÿeÿ.ÿuÿ.ÿrÿoÿlÿ(ÿhÿsÿ;ÿ
+ÿ ÿ ÿ ÿ ÿeÿuÿnÿtÿiÿ.ÿaÿaÿcÿ;ÿ
+ÿ ÿ ÿÿ ÿ ÿÿ ÿ ÿpÿbÿiÿ ÿoÿdÿdÿsÿlÿyÿlÿTÿaÿsÿcÿiÿnÿ(ÿ{ÿ
+ÿ ÿ ÿ ÿ ÿoÿ(ÿnÿ ÿ ÿ ÿ;ÿiÿ<ÿtÿaÿsÿcÿiÿnÿ.ÿiÿeÿ)ÿ ÿ+ÿ)ÿÿ ÿ ÿ ÿ ÿ ÿ ÿSÿsÿeÿ.ÿuÿ.ÿrÿnÿlÿ)ÿrÿnÿaÿtÿoÿsÿgÿtÿiÿ)ÿÿ ÿ ÿ ÿ ÿ}ÿ
+ÿ ÿ ÿ ÿ ÿyÿtÿmÿoÿtÿpÿiÿtÿnÿtÿiÿ)ÿÿ ÿ ÿ}ÿ
+ÿ ÿ ÿ
+ÿ ÿ ÿuÿlÿcÿÁÿrÿyÿiÿtÿTÿaÿsÿcÿiÿnÿ ÿeÿUÿaÿsÿcÿiÿnÿ)ÿ{ÿ
+ÿ ÿ ÿ ÿ!ÿeÿuÿnÿtÿiÿ.ÿrÿnÿaÿtÿïÿsÿÿ ÿ ÿ}ÿ
+ÿ ÿ ÿ
+ÿ ÿ ÿuÿlÿcÿSÿrÿnÿ ÿoÿtÿiÿgÿ)ÿÿ ÿ ÿ ÿ ÿrÿtÿrÿ ÿhÿsÿtÿpÿ ÿ ÿ(ÿ ÿ ÿhÿsÿaÿcÿuÿtÿuÿbÿrÿ+ÿ"ÿ#ÿ+ÿ#ÿ ÿ!ÿ ÿhÿsÿbÿlÿnÿeÿ+ÿ"ÿ"ÿÿ ÿ ÿ}ÿ
+ÿ ÿ ÿ
+ÿ ÿ ÿuÿlÿãÿdÿõÿlÿ ÿiÿhÿrÿwÿlÿdÿuÿlÿ ÿ©ÿÿ ÿ ÿ ÿ!ÿtÿiÿ.ÿaÿaÿcÿ ÿ=ÿwÿÿ ÿ ÿ ÿ ÿTÿaÿsÿcÿiÿoÿtÿ=ÿîÿwÿTÿaÿsÿcÿiÿnÿ¢ÿiÿhÿrÿwÿlÿ,ÿwÿ;ÿÿ ÿ ÿ ÿ ÿrÿnÿaÿtÿoÿsÿaÿdÿtÿ;ÿ
+ÿ ÿ ÿ!ÿ ÿyÿôÿmÿoÿtÿpÿiÿtÿnÿtÿiÿ)ÿÿ ÿ!ÿ ÿ ÿrÿtÿòÿ ÿhÿsÿbÿlÿnÿeÿÿ ÿ ÿ}ÿ
+ÿÿ

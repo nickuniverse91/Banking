@@ -61,9 +61,9 @@ public class Bank implements IBank{
     }
     
     //@RR
-    public Client getClient(int clientId){
+    public Client getClient(int id){
         for (int i = 0; i < clientList.size(); i++) {
-            if(clientId == clientList.get(i).getId()){
+            if(id == clientList.get(i).getId()){
                 return clientList.get(i);
             }
         }

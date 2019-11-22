@@ -1,83 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package banking;
-
-import java.util.ArrayList;
-
-/*
-
-Nicholas Piperni
-
-*/
-public class Client implements IClient{
-    
-    private static int counter = 0;
-    
-    private int id;
-    private String firstName;
-    private String lastName;
-    private ArrayList<Account>accountList = new ArrayList<Account>();
-
-    public Client(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        counter++;
-        this.id = counter;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-    
-    public void addAccount(Account newAccount){
-        if(newAccount != null){
-            accountList.add(newAccount);
-        }
-        System.out.println("BOBO Account");
-    }
-    
-    public void displayAccounts(){
-        for(int i = 0; i < accountList.size(); i++){
-            System.out.println(accountList.get(i));
-        }
-    }
-    
-    public Account getAccount(int accountNumber){
-        Account acc;
-        for(int i = 0; i < accountList.size(); i++){
-            
-            if(accountList.get(i).getAccountNumber() == accountNumber){
-                return accountList.get(i);
-            }
-        }
-        return null;
-    }
-    
-    public String toString(){
-        return "(" + id + ") " + lastName + ", " + firstName;
-    }
-    
-}
+/ÿÿ ÿ!ÿoÿcÿaÿgÿ ÿiÿsÿlÿcÿnÿåÿhÿaÿeÿ,ÿcÿoÿsÿ ÿiÿåÿsÿ ÿeÿdÿrÿ ÿoÿPÿoÿeÿuÿPÿoÿeÿtÿeÿ.ÿ
+ÿ*ÿTÿ ÿhÿoÿeÿtÿiÿ ÿeÿpÿaÿeÿfÿlÿ,ÿcÿoÿsÿ ÿoÿlÿ ÿ ÿeÿpÿaÿeÿÿ ÿ ÿnÿ ÿpÿoÿôÿeÿtÿmÿìÿtÿ ÿnÿtÿeÿeÿiÿoÿ.ÿ
+ÿ*ÿÿqÿcÿaÿeÿcÿnÿiÿgÿÿÿiÿpÿrÿ ÿaÿaÿuÿiÿ/ÿrÿaÿLÿsÿ;ÿ
+ÿ
+ÿ*ÿ
+ÿÿiÿhÿlÿsÿÐÿpÿrÿiÿ
+ÿ
+ÿ¯ÿ
+ÿuÿlÿãÿcÿaÿsÿCÿiÿnÿ ÿmÿmÿmÿnÿsÿIÿlÿeÿtÿÿ ÿ ÿÿ ÿ ÿpÿiÿaÿeÿsÿaÿiÿ ÿnÿ ÿoÿnÿeÿ ÿ ÿ»ÿ
+ÿ ÿ ÿ
+ÿ ÿ ÿrÿöÿtÿ ÿnÿ ÿdÿÿ!ÿ ÿpÿéÿaÿeÿSÿòÿnÿ ÿiÿsÿNÿmÿ;ÿ
+ÿ!ÿ ÿrÿvÿtÿ ÿtÿiÿgÿìÿsÿNÿmÿ;ÿ
+ÿ ÿ ÿòÿvÿtÿ ÿrÿaÿLÿsÿ<ÿcÿoÿnÿ>ÿcÿoÿnÿLÿsÿ ÿ ÿeÿ ÿòÿaÿLÿsÿ<ÿcÿoÿnÿ¾ÿ)ÿÿÿ ÿ ÿpÿbÿiÿ ÿlÿeÿtÿSÿrÿnÿ ÿiÿsÿNÿmÿ,ÿSÿsÿnÿ ÿáÿtÿaÿeÿ ÿÿ ÿ ÿ ÿ ÿtÿiÿ®ÿiÿóÿNÿíÿ!ÿ ÿiÿsÿNÿmÿ;ÿ
+ÿ ÿ ÿ ÿ ÿhÿsÿmÿsÿOÿmÿ ÿ ÿaÿtÿaÿåÿÿ ÿ!ÿ ÿ ÿcÿuÿtÿrÿ+ÿÿ ÿ ÿ ÿ ÿtÿiÿ.ÿdÿ=ÿcÿuÿtÿrÿÿ ÿ ÿ}ÿ
+ÿ
+ÿ ÿ ÿuÿlÿcÿiÿtÿgÿtÿdÿ)ÿ{ÿÿ ÿ ÿ ÿ!ÿeÿuÿnÿiÿ;ÿ
+ÿ ÿ ÿÿÿ ÿ ÿpÿbÿéÿ!ÿoÿdÿsÿtÿdÿiÿtÿiÿ©ÿ{ÿ
+ÿ ÿ ÿ ÿ ÿhÿsÿiÿ ÿ ÿdÿÿ ÿ ÿ}ÿÿ
+ÿ ÿ ÿuÿlÿcÿÓÿrÿnÿ ÿeÿFÿrÿtÿaÿeÿ)ÿ{ÿ
+ÿ ÿ ÿ ÿ ÿeÿuÿoÿfÿrÿtÿaÿeÿÿ ÿ ÿ}ÿÿŠÿ!ÿ ÿuÿlÿcÿvÿiÿ ÿeÿFÿrÿtÿaÿeÿSÿrÿnÿ ÿiÿsÿOÿmÿ)ÿ{ÿ
+ÿ ÿ ÿ ÿ ÿhÿsÿfÿrÿtÿaÿeÿ=ÿfÿrÿtÿaÿeÿÿ ÿ ÿ}ÿ
+ÿ
+ÿ ÿ ÿuÿlÿcÿSÿrÿîÿ ÿåÿLÿsÿNÿmÿ(ÿ ÿÿ ÿ!ÿ ÿ!ÿrÿtÿrÿ ÿaÿtÿaÿeÿÿ ÿ ÿ}ÿ
+ÿ
+ÿ ÿ ÿuÿmÿãÿwÿiÿ ÿeÿLÿsÿOÿmÿ(ÿtÿiÿgÿlÿsÿNÿmÿ)ÿ{ÿ
+ÿ ÿ ÿ ÿ ÿhÿsÿlÿsÿNÿmÿ ÿ ÿaÿtÿaÿeÿÿ ÿ ÿ}ÿ
+ÿ ÿ ÿ
+ÿ ÿ ÿuÿlÿãÿvÿiÿ ÿdÿAÿcÿuÿtÿAÿcÿuÿtÿnÿwÿcÿoÿnÿ)ÿÿ ÿ ÿ ÿ ÿiÿ(ÿeÿAÿcÿuÿtÿ!ÿ ÿuÿlÿ{ÿ
+ÿ ÿ ÿ ÿ ÿ ÿ ÿcÿoÿnÿLÿsÿ.ÿdÿ(ÿeÿAÿcÿuÿtÿ;ÿ
+ÿ ÿ ÿ ÿ ÿÿ ÿ ÿ ÿ ÿSÿsÿeÿ.ÿuÿ.ÿrÿnÿmÿ(ÿBÿBÿ!ÿcÿoÿnÿ"ÿ;ÿ
+ÿ ÿ ÿÿ ÿ ÿÿ ÿ ÿpÿbÿiÿ ÿoÿdÿdÿsÿlÿyÿcÿoÿnÿsÿ)ÿÿ ÿ ÿ ÿ ÿfÿrÿiÿtÿiÿ=ÿ0ÿ!ÿ ÿ!ÿcÿoÿnÿLÿsÿ.ÿiÿeÿ©ÿ!ÿ+ÿ)ÿÿ ÿ ÿ ÿ ÿ ÿ ÿSÿsÿeÿ.ÿuÿ.ÿrÿnÿlÿ(ÿcÿoÿnÿLÿsÿ®ÿeÿ(ÿ)ÿ;ÿ
+ÿ ÿ ÿ ÿ ÿÿ ÿ ÿ}ÿŠÿ!ÿ ÿÿ ÿ ÿuÿlÿcÿAÿãÿuÿtÿgÿtÿcÿoÿnÿ(ÿoÿ ÿcÿoÿnÿNÿmÿeÿ)ÿÿ ÿ ÿ ÿ ÿAÿcÿuÿtÿaÿcÿÿ ÿ ÿ ÿ ÿfÿrÿiÿtÿiÿ=ÿ0ÿ ÿ ÿ ÿcÿoÿnÿLÿóÿ.ÿiÿeÿ)ÿ ÿ+ÿ)ÿÿ ÿ ÿ ÿ ÿ ÿ ÿÿ ÿ ÿ ÿ ÿ ÿ ÿéÿ(ÿcÿoÿnÿLÿsÿ/ÿeÿ(ÿ)ÿgÿtÿcÿoÿnÿNÿmÿeÿ(ÿ ÿ=ÿaÿcÿuÿtÿuÿbÿòÿ{ÿ
+ÿ!ÿ ÿ ÿ ÿ ÿ ÿ ÿ ÿeÿuÿoÿaÿcÿuÿtÿiÿtÿgÿtÿiÿ;ÿ
+ÿ ÿ ÿ ÿ ÿ ÿ ÿÿ ÿ ÿ ÿ ÿ}ÿ
+ÿ ÿ ÿ ÿ ÿeÿuÿnÿnÿlÿ;ÿ
+ÿ ÿ ÿÿ ÿ ÿÿ!ÿ ÿpÿbÿiÿ ÿtÿiÿgÿtÿSÿrÿnÿ¨ÿ{ÿ
+ÿ!ÿ ÿ ÿ ÿeÿuÿnÿ"ÿ"ÿ+ÿiÿ ÿ ÿ)ÿ#ÿ+ÿmÿsÿNÿmÿ ÿ ÿ,ÿ"ÿ+ÿfÿrÿtÿaÿeÿÿ ÿ ÿ}ÿ
+ÿ ÿ ÿŠÿÿ

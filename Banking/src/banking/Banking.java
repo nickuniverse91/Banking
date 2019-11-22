@@ -22,8 +22,6 @@ public class Banking {
         int id;
         int accNum;
         double transaction;
-        Client cl;
-        Account acc;
         
         while(bContinue){
             System.out.println( "[1] Add a new Client      \t" + "[2] Create a new Account \n" +
@@ -33,14 +31,11 @@ public class Banking {
             
             switch(uim.retrieveUserOption()){
                 case 1:
-                    cl = uim.retrieveClientInfo();
-                    myBank.addClient(cl);
+                    myBank.addClient(uim.retrieveClientInfo());
                     break;
                 case 2:
                     id = uim.retrieveClientId();
-                    acc = uim.retrieveAccountType();
-                    acc.setOwner(myBank.getClient(id));
-                    myBank.getClient(id).addAccount(acc);
+                    uim.retrieveAccountType().setOwner(myBank.getClient(id));
                     break;
                 case 3:
                     id = uim.retrieveClientId();
@@ -57,9 +52,7 @@ public class Banking {
                 case 5:
                     id = uim.retrieveClientId();
                     accNum = uim.retrieveAccountNumber();
-                    cl = myBank.getClient(id);
-                    acc = cl.getAccount(accNum);
-                    acc.displayAllTransactions();
+                    myBank.getClient(id).getAccount(accNum).displayAllTransactions();
                     break;
                 case 6:
                     myBank.displayClientList();
