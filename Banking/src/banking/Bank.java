@@ -47,7 +47,7 @@ public class Bank implements IBank{
         //@RR
         for (int i = 0; i < clientList.size(); i++) {
             if(clientId == clientList.get(i).getId()){
-                System.out.println(clientList.get(i));
+                System.out.println("Accounts for " + clientList.get(i).getLastName() + ", " +clientList.get(i).getFirstName() + " (" + clientId + "):");
                 clientList.get(i).displayAccounts();
             }
                 
@@ -55,15 +55,16 @@ public class Bank implements IBank{
     }
     
     public void displayClientList(){
+        System.out.println("List of current clients:");
         for(int i = 0; i < clientList.size(); i++){
             System.out.println(clientList.get(i));
         }
     }
     
     //@RR
-    public Client getClient(int id){
+    public Client getClient(int clientId){
         for (int i = 0; i < clientList.size(); i++) {
-            if(id == clientList.get(i).getId()){
+            if(clientId == clientList.get(i).getId()){
                 return clientList.get(i);
             }
         }
