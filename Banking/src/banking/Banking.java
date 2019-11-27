@@ -16,21 +16,20 @@ Pratham Patel
 public class Banking {
 
     public static void main(String[] args) {
+        
         boolean bContinue = true;
         Bank myBank = new Bank("004", "123 Seasame Street");
         UserInputManager uim = new UserInputManager();
         int id;
         int accNum;
         double transaction;
-        Client cl;
         Account acc;
         
         while(bContinue){
             System.out.printf("%-32s%-32s\n%-32s%-32s\n%-32s%-32s\n%-32s%-32s\n","[1] Add a new Client","[2] Create a new Account","[3] Make a Deposit","[4] Make a Withdrawal","[5] List Account Transactions","[6] List Clients","[7] List Client Accounts","[8] Exit");
             switch(uim.retrieveUserOption()){
                 case 1:
-                    cl = uim.retrieveClientInfo();
-                    myBank.addClient(cl);
+                    myBank.addClient(uim.retrieveClientInfo());
                     break;
                 case 2:
                     id = uim.retrieveClientId();
@@ -53,8 +52,7 @@ public class Banking {
                 case 5:
                     id = uim.retrieveClientId();
                     accNum = uim.retrieveAccountNumber();
-                    cl = myBank.getClient(id);
-                    acc = cl.getAccount(accNum);
+                    acc = myBank.getClient(id).getAccount(accNum);
                     acc.displayAllTransactions();
                     break;
                 case 6:
